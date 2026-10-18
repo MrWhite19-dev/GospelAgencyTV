@@ -1,0 +1,84 @@
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: none;
+}
+
+.hero-content,
+.section .glass-card,
+.show-card,
+.news-card,
+.partner-card,
+.impact-card,
+.update-card,
+.history-card,
+.caption-card,
+.contact-info,
+.donate-card,
+.chat-card,
+.team-card,
+.video-frame,
+.newsletter-card {
+  animation: appear 1.1s ease forwards;
+}
+
+.loader {
+  position: fixed;
+  inset: 0;
+  background: #050505;
+  z-index: 999;
+  display: grid;
+  place-items: center;
+}
+
+.loader__inner {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 8px solid rgba(255, 255, 255, 0.14);
+  border-top-color: #ff9a2d;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.cursor-glow {
+  position: fixed;
+  inset: auto auto 20px 20px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.24;
+  background: radial-gradient(circle, rgba(255, 154, 45, 0.36), transparent 55%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
